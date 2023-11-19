@@ -15,7 +15,7 @@ public class ControllerTarefa {
     @Autowired
     private ServiceTarefa service;
 
-    @GetMapping
+    @GetMapping("/tarefas")
     public List<Tarefa> getAll() {
         return service.findAll();
     }
@@ -27,7 +27,7 @@ public class ControllerTarefa {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    @PostMapping
+    @PostMapping("/tarefas")
     public Tarefa create(@RequestBody Tarefa tarefa) {
         return service.save(tarefa);
     }
