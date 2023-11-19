@@ -7,30 +7,43 @@ import javax.persistence.Id;
 
 @Entity
 public class Tarefa {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String descricao;
     private boolean feita;
-    public int getId() {
-        return id;
+
+    public Tarefa() {
+        // Construtor padrão necessário para JPA
     }
-    public void setId(int id) {
+
+    public Tarefa(int id, String descricao, boolean feita) {
         this.id = id;
-    }
-    public String getDescricao() {
-        return descricao;
-    }
-    public void setDescricao(String descricao) {
         this.descricao = descricao;
-    }
-    public boolean isFeita() {
-        return feita;
-    }
-    public void setFeita(boolean feita) {
         this.feita = feita;
     }
 
-}
+    int getId() {
+        return id;
+    }
 
+    void setId(int id) {
+        this.id = id;
+    }
+
+    private String getDescricao() {
+        return descricao;
+    }
+
+    private void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    private boolean isFeita() {
+        return feita;
+    }
+
+    private void setFeita(boolean feita) {
+        this.feita = feita;
+    }
+}
